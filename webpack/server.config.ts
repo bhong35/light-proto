@@ -1,5 +1,6 @@
 import path from 'path';
 import { Configuration } from 'webpack';
+import nodeExternals from 'webpack-node-externals';
 
 import {
     ALIAS,
@@ -25,7 +26,9 @@ const serverConfig: Configuration = {
     resolve: {
         alias: ALIAS,
         extensions: ['.ts', '.tsx', '.js']
-    }
+    },
+    devtool: 'source-map',
+    externals: [nodeExternals()]
 };
 
 export { serverConfig };

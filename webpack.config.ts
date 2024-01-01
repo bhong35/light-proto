@@ -1,9 +1,9 @@
+import { clientConfig } from './webpack/client.config';
 import { serverConfig } from './webpack/server.config';
 
 const configs = [];
 
-// * SSR
 configs.push(serverConfig);
-// TODO: Add CSR with clientConfig
+configs.push(clientConfig);
 
 module.exports = configs;

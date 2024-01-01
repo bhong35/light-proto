@@ -1,6 +1,6 @@
 import path from 'path';
 
-const IS_DEV: boolean = String(process.env.NODE_ENV).trim() === 'development'
+const IS_SWC: boolean = true;
 
 const SRC_DIR: string = path.join(__dirname, '../src');
 const DIST_DIR: string = path.join(__dirname, '../dist');
@@ -24,7 +24,7 @@ const ALIAS: Record<string, string> = {
 export {
     ALIAS,
     DIST_DIR,
-    IS_DEV,
+    IS_SWC,
     SRC_DIR,
     SERVER_BUNDLE_NAME,
     SERVER_SRC_DIR,
