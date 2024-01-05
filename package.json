@@ -5,11 +5,10 @@
     "main": "index.tsx",
     "scripts": {
         "clean": "rm -rf dist",
-        "start:webpack": "cross-env NODE_ENV=development webpack --mode=development",
+        "start:webpack": "cross-env NODE_ENV=development webpack --mode=development --watch",
         "start:server": "wait-on dist/server.js && node dist/server.js",
-        "dev": "npm run clean && npm-run-all --print-label --parallel start:webpack start:server",
-        "start": "nodemon --exec pnpm run dev --watch src/server --ext ts,tsx,json ",
-        "run": "node dist/server.js"
+        "dev": "pnpm run clean && npm-run-all --print-label --parallel start:webpack start:server",
+        "start": "nodemon --exec pnpm run dev --watch src/server"
     },
     "keywords": [],
     "author": "Benjamin Hong",
@@ -28,6 +27,7 @@
         "express": "^4.18.2",
         "html-webpack-plugin": "^5.6.0",
         "jest": "^29.7.0",
+        "live-server": "^1.2.2",
         "nodemon": "^3.0.2",
         "npm-run-all": "^4.1.5",
         "prettier": "^3.1.1",
