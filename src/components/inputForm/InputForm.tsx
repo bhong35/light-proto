@@ -1,21 +1,21 @@
 import { ChangeEvent, FC, ReactElement } from 'react';
 
 interface IInputForm {
-    options?: string[]
-    value?: string
-    onChange: (inputString: string) => ChangeEvent
+    options: string[]
+    placeholder: string
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void
     className?: string
 };
 
 const InputForm: FC<IInputForm> = ({
     options,
-    value,
+    placeholder,
     onChange,
     className
 }): ReactElement => {
     return (
         <div>
-            {options && {
+            {options &&
                 options.map((option: string) => (
                     <form className={className}>
                         <label id={`${className}-${option}-label`}>{option}</label>
@@ -23,13 +23,13 @@ const InputForm: FC<IInputForm> = ({
                             type="text"
                             id={`${className}-${option}"-text`}
                             onChange={onChange}
-                            placeholder={value}
+                            placeholder={placeholder}
                         >
                         </input>
                         <input type="submit" id={`${className}-${option}-submit`} value="Submit"></input>
                     </form>
                 ))
-            }}
+            }
         </div>
     )
 }
