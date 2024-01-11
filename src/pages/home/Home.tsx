@@ -1,16 +1,8 @@
 import { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { InputForm } from 'components';
-import { inputFormProps } from './testValues';
+import { TaskList } from 'components';
 
-// * testValues
-const {
-    inputFormOptions,
-    inputFormOnChange,
-    inputFormPlaceholder
- } = inputFormProps;
-
-const Home: FC = ({}): ReactElement => {
+const Home: FC = (): ReactElement => {
     return (
         <div>
             <div>
@@ -19,13 +11,9 @@ const Home: FC = ({}): ReactElement => {
             <NavLink to="/about">
                 About Me
             </NavLink>
-            <InputForm
-                options={inputFormOptions}
-                onChange={inputFormOnChange}
-                placeholder={inputFormPlaceholder}
-            />
+            <TaskList />
         </div>
-    )
-}
+    );
+};
 
 export { Home };

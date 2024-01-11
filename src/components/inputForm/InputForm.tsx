@@ -1,37 +1,37 @@
 import { ChangeEvent, FC, ReactElement } from 'react';
 
-interface IInputForm {
-    options: string[]
-    placeholder: string
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void
-    className?: string
+export interface IInputForm {
+    inputFormOptions: string[]
+    inputFormPlaceholder: string
+    inputFormOnChange: (event: ChangeEvent<HTMLInputElement>) => void
+    inputFormClassName: string
 };
 
 const InputForm: FC<IInputForm> = ({
-    options,
-    placeholder,
-    onChange,
-    className
+    inputFormOptions,
+    inputFormPlaceholder,
+    inputFormOnChange,
+    inputFormClassName
 }): ReactElement => {
     return (
         <div>
-            {options &&
-                options.map((option: string) => (
-                    <form className={className}>
-                        <label id={`${className}-${option}-label`}>{option}</label>
+            {inputFormOptions &&
+                inputFormOptions.map((option: string) => (
+                    <form className={inputFormClassName}>
+                        <label id={`${inputFormClassName}-${option}-label`}>{option}</label>
                         <input
                             type="text"
-                            id={`${className}-${option}"-text`}
-                            onChange={onChange}
-                            placeholder={placeholder}
+                            id={`${inputFormClassName}-${option}"-text`}
+                            onChange={inputFormOnChange}
+                            placeholder={inputFormPlaceholder}
                         >
                         </input>
-                        <input type="submit" id={`${className}-${option}-submit`} value="Submit"></input>
+                        <input type="submit" id={`${inputFormClassName}-${option}-submit`} value="Submit"></input>
                     </form>
                 ))
             }
         </div>
-    )
-}
+    );
+};
 
 export { InputForm };
